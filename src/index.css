@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #05070C;
+  color: #EEF1F8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(62, 123, 250, 0.35);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05070C;
+}
+::-webkit-scrollbar-thumb {
+  background: #171F32;
+  border-radius: 8px;
+  border: 2px solid #05070C;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #232C44;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3E7BFA;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[11px] tracking-[0.28em] uppercase text-signal-blue/90 flex items-center gap-2;
+  }
+
+  .section-heading {
+    @apply font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-paper-100 tracking-tight;
+  }
+
+  .section-sub {
+    @apply text-paper-500 text-sm sm:text-base leading-relaxed max-w-2xl;
+  }
+
+  .glass-card {
+    @apply relative bg-ink-800/60 backdrop-blur-xl border border-ink-border rounded-2xl shadow-card;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-signal-blue text-white font-medium text-sm px-6 py-3 transition-all duration-300 hover:shadow-glowBlue hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-ink-borderStrong text-paper-100 font-medium text-sm px-6 py-3 transition-all duration-300 hover:border-signal-orange/60 hover:text-signal-orangeSoft hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    background: currentColor;
+    transition: transform 0.35s ease;
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .signature-text {
+    font-family: 'Caveat', cursive;
+    font-size: 46px;
+    font-weight: 600;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
