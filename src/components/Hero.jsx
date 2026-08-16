@@ -214,7 +214,7 @@ export default function Hero() {
               View My Work
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-            <a href="https://drive.google.com/file/d/1i4ybtuXZIyOtqVc2HY5jrFBfQBl762vs/view?usp=drive_link" data-cursor-hover download className="btn-secondary">
+            <a href="https://drive.google.com/file/d/1WA3MZUT2WPmHmPX9VUBR33-g70sSWt6X/view?usp=drive_link" data-cursor-hover download className="btn-secondary">
               Download Resume
             </a>
           </motion.div>
