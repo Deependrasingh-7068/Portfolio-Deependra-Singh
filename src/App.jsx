@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { CursorProvider } from './context/CursorContext'
 import CursorEngine from './components/CursorEngine'
 import CursorSwitcher from './components/CursorSwitcher'
+import MagicButton from './components/MagicButton'
 import Background from './components/Background'
 import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
@@ -27,22 +28,25 @@ export default function App() {
       <Background />
       <CursorEngine />
       <CursorSwitcher />
+      <MagicButton />
       <Navbar />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Services />
-        <Process />
-        <Games />
-        <Contact />
-      </main>
+      <div id="magic-scope">
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Education />
+          <Services />
+          <Process />
+          <Games />
+          <Contact />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </CursorProvider>
   )
 }

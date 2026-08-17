@@ -4,70 +4,95 @@ const LINKS = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' }
+  { id: 'contact', label: 'Contact' },
 ]
 
 export default function Footer() {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <footer className="relative border-t border-ink-border px-6 py-12">
-      <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex flex-col items-center md:items-start gap-1">
-          <span className="font-display font-bold text-lg text-paper-100">
-            Deependra Singh<span className="text-signal-blue">.</span>
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 md:flex-row">
+        
+        {/* Brand */}
+        <div className="flex flex-col items-center gap-1 md:items-start">
+          <span className="font-display text-lg font-bold text-paper-100">
+            Deependra Singh
+            <span className="text-signal-blue">.</span>
           </span>
-          <span className="font-mono text-xs text-paper-500">Full Stack Developer</span>
+
+          <span className="font-mono text-xs text-paper-500">
+            Full Stack Developer
+          </span>
         </div>
 
+        {/* Navigation */}
         <nav className="flex items-center gap-6 font-mono text-xs text-paper-500">
-          {LINKS.map((l) => (
+          {LINKS.map((link) => (
             <button
-              key={l.id}
-              onClick={() => scrollTo(l.id)}
+              key={link.id}
+              type="button"
+              onClick={() => scrollTo(link.id)}
               data-cursor-hover
               className="link-underline hover:text-paper-100"
             >
-              {l.label}
+              {link.label}
             </button>
           ))}
         </nav>
 
+        {/* Social Links */}
         <div className="flex items-center gap-3">
+          
+          {/* GitHub */}
           <a
             href="https://github.com/Deependrasingh-7068"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             data-cursor-hover
             aria-label="GitHub"
-            className="w-9 h-9 rounded-full border border-ink-border flex items-center justify-center text-paper-300 hover:text-signal-blueSoft hover:border-signal-blue/40 transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-border text-paper-300 transition-colors hover:border-signal-blue/40 hover:text-signal-blueSoft"
           >
             <Github size={15} />
           </a>
+
+          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/deependra-singh-872414260/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             data-cursor-hover
             aria-label="LinkedIn"
-            className="w-9 h-9 rounded-full border border-ink-border flex items-center justify-center text-paper-300 hover:text-signal-blueSoft hover:border-signal-blue/40 transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-border text-paper-300 transition-colors hover:border-signal-blue/40 hover:text-signal-blueSoft"
           >
             <Linkedin size={15} />
           </a>
+
+          {/* Email */}
           <a
             href="mailto:7he.deependra.singh.01@gmail.com"
             data-cursor-hover
             aria-label="Email"
-            className="w-9 h-9 rounded-full border border-ink-border flex items-center justify-center text-paper-300 hover:text-signal-orangeSoft hover:border-signal-orange/40 transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-border text-paper-300 transition-colors hover:border-signal-orange/40 hover:text-signal-orangeSoft"
           >
             <Mail size={15} />
           </a>
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl mt-10 pt-6 border-t border-ink-border flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[11px] text-paper-700">
-        <span>© 2026 Deependra Singh. All rights reserved.</span>
-        <span>Built with React &amp; ☕</span>
+      {/* Bottom Footer */}
+      <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-3 border-t border-ink-border pt-6 font-mono text-[11px] text-paper-700 sm:flex-row">
+        <span>
+          © 2026 Deependra Singh. All rights reserved.
+        </span>
+
+        <span>
+          Built with React &amp; ☕
+        </span>
       </div>
     </footer>
   )

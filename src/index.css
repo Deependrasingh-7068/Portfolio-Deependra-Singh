@@ -120,3 +120,24 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Magic gravity easter egg ─────────────────────────────────────────── */
+
+.magic-letter {
+  display: inline-block;
+  white-space: pre;
+  animation: magic-fall var(--fall-duration, 1.2s) cubic-bezier(0.47, 0, 0.75, 0.72) forwards;
+  animation-delay: var(--fall-delay, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes magic-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--fall-x, 0px), var(--fall-y, 500px)) rotate(var(--fall-rot, 360deg));
+    opacity: 0;
+  }
+}
